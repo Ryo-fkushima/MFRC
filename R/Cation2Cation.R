@@ -1,7 +1,7 @@
-#' @title Converting wt% into atomic proportions
-#' @description \code{Mass2Cation} converts wt% into atomic proportions.
+#' @title Converting atomic proportions into atomic proportions with different normalization methods and/or element choices
+#' @description \code{Cation2Cation} converts atomic proportions into atomic proportions with different normalization methods and/or element choices.
 #'
-#' @param table (dataframe) wt% data
+#' @param table (dataframe) Atomic proportion data
 #' @param ElementList (dataframe) Information of considered elements, cation/oxygen numbers per unit formula.
 #' Use MFRC::ElementList_all or its subset (e.g., MFRC::ElementList_MnNCKFMASTCr, MFRC::ElementList_NCFMAS).
 #'
@@ -12,10 +12,11 @@
 #'
 #' @export
 #' @examples
-#' Mass2Cation(MFRC::testwtpc, MFRC::ElementList_MnNCKFMASTCr, NormMode = "Oxygen", NormValue = 24, padding = FALSE)
-
-
-Mass2Cation <- function(table, ElementList, NormMode = "Oxygen", NormValue = 24, padding = FALSE){
+#' Mass2Cation(MFRC::testwtpc, MFRC::ElementList_NCFMAS, NormMode = "Oxygen", NormValue = 24, padding = FALSE) |>
+#'           Cation2Cation(MFRC::ElementList_MnNCKFMASTCr, NormMode = "Cation", NormValue = 4, padding = TRUE)
+#'
+#'
+Cation2Cation <- function(table, ElementList, NormMode = "Oxygen", NormValue = 24, padding = FALSE){
 
   if(NormMode != "Oxygen" && NormMode != "Cation"){
     stop("Set NormMode either as 'Oxygen' or 'Cation'")
@@ -24,7 +25,7 @@ Mass2Cation <- function(table, ElementList, NormMode = "Oxygen", NormValue = 24,
   CationList <- data.frame(matrix(ncol=0, nrow = nrow(table)))
   OxygenList <- data.frame(matrix(ncol=0, nrow = nrow(table)))
 
-  ElementFilter <- ElementList[1,] %in% colnames(table)
+  ElementFilter <- ElementList[2,] %in% colnames(table)
   ElementFilterIndex <- which(ElementFilter == TRUE)
 
   if (padding == TRUE){
@@ -37,7 +38,6 @@ Mass2Cation <- function(table, ElementList, NormMode = "Oxygen", NormValue = 24,
 
   }
 
-
   for (j in jvector){
 
     if (ElementFilter[j] == FALSE){
@@ -46,12 +46,13 @@ Mass2Cation <- function(table, ElementList, NormMode = "Oxygen", NormValue = 24,
 
     }else{
 
-      numerator <- table[,ElementList[1,j]]
+      numerator <- table[,ElementList[2,j]]
 
     }
 
-    CationList[,ElementList[2,j]] <- numerator / MFRC::MassList[,ElementList[1,j]] * as.numeric(ElementList[3,j])
-    OxygenList[,ElementList[2,j]] <- numerator / MFRC::MassList[,ElementList[1,j]] * as.numeric(ElementList[4,j])
+    CationList[,ElementList[2,j]] <- numerator
+    OxygenList[,ElementList[2,j]] <- numerator / as.numeric(ElementList[3,j]) * as.numeric(ElementList[4,j])
+
   }
 
   TemporaryNcol <- ncol(CationList)
@@ -73,5 +74,4 @@ Mass2Cation <- function(table, ElementList, NormMode = "Oxygen", NormValue = 24,
   }
 
   return(CationList)
-
 }

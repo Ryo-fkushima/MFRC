@@ -3,3 +3,5 @@
 export(Cation2Cation)
 export(Cation2MassPc)
 export(Mass2Cation)
+export(Omp_AlT_Omit)
+export(Pyroxene_MinPlot)

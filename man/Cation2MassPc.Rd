@@ -17,7 +17,7 @@ Use MFRC::ElementList_all or its subset (e.g., MFRC::ElementList_MnNCKFMASTCr, M
 \item{padding}{(logical) TRUE for padding concentrations for element absent in the input data (default = FALSE)}
 }
 \description{
-\code{Cation2Cation} converts atomic proportions into wt\%.
+\code{Cation2MassPc} converts atomic proportions into wt\%.
 }
 \examples{
 Mass2Cation(MFRC::testwtpc, MFRC::ElementList_NCFMAS, NormMode = "Oxygen", NormValue = 24, padding = FALSE) |>

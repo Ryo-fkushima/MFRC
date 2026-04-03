@@ -1,5 +1,5 @@
 #' @title Converting atomic proportions into wt%
-#' @description \code{Cation2Cation} converts atomic proportions into wt%.
+#' @description \code{Cation2MassPc} converts atomic proportions into wt%.
 #'
 #' @param table (dataframe) Atomic proportion data
 #' @param ElementList (dataframe) Information of considered elements, cation/oxygen numbers per unit formula.

@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of MFRC is to ...
+Wait for the official release!
 
 ## Installation
 

@@ -2,7 +2,7 @@ Package: MFRC
 Type: Package
 Title: Tool for mineral formula recalculation
 Version: 0.1.0
-Author: Who wrote it
+Author: Ryo Fukushima
 Maintainer: Ryo Fukushima <rpifukushima@gmail.com>
 Description: Tool for mineral formula recalculation
 License: MIT + file LICENSE
@@ -10,3 +10,5 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Depends: 
+    R (>= 3.5)

@@ -1,11 +1,15 @@
-#' @title Recalculation for omphacite (NCFMAS, Al_T is omitted, Ca + Mg + Fe in M2 = Mg + Fe in M1, Mg/Fe equipartition)
-#' @description \code{Omp_AlT_Omit}: For omphacite (NCFMAS, Al_T is omitted)
+#' @title Recalculation for omphacite (NCFMAS, Al_T is omitted)
+#' @description \code{Omp_AlT_Omit} calculates site fractions for omphacite in NCFMAS system.
+#' Al in T site is omitted, (Ca + Mg + Fe2+) in M2 is equated to (Mg + Fe2+) in M1,
+#' and Mg/Fe equipartition is assumed. Used in Fukushima et al. (2024)
 #'
 #' @param CationTable (dataframe) Atomic proportion data
 #'
 #' @export
 #' @examples
 #' Mass2Cation(MFRC::testwtpc, MFRC::ElementList_MnNCKFMASTCr) |> Omp_AlT_Omit()
+#' @references Fukushima, R., Tsujimori, T., & Miyajima, N. (2024). Simulation of microtextural evolution in omphacite: Ordering transformation kinetics as unexplored archives of slab eclogitization.
+#' Physics of the Earth and Planetary Interiors, 354, 107227.
 #'
 
 Omp_AlT_Omit <- function(CationTable){
@@ -43,6 +47,11 @@ Omp_AlT_Omit <- function(CationTable){
 
 
   }
+
+  Result$Xaeg <- Result$Fe3_M1
+  Result$Xaug <- Result$Mg_M1 + Result$Fe2_M1
+  Result$XMg <- Result$Mg_M1 / Result$Xaug
+  Result$FeT <- Result$Fe2_M1 + Result$Fe2_M2 + Result$Fe3_M1
 
 
   return(Result)

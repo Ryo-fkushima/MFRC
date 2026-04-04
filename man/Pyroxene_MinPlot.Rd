@@ -2,7 +2,7 @@
 % Please edit documentation in R/Pyroxene_MinPlot.R
 \name{Pyroxene_MinPlot}
 \alias{Pyroxene_MinPlot}
-\title{Recalculation for pyroxene (Method used in MinPlot)}
+\title{Recalculation for pyroxene (method from MinPlot)}
 \usage{
 Pyroxene_MinPlot(CationTable)
 }
@@ -10,7 +10,7 @@ Pyroxene_MinPlot(CationTable)
 \item{CationTable}{(dataframe) Atomic proportion data}
 }
 \description{
-\code{Omp_AlT_Omit}: For pyroxene (MinPlot)
+\code{Pyroxene_MinPlot} calculates site fractions for pyroxene with the method used in MinPlot (Walters, 2022).
 }
 \examples{
 Mass2Cation(MFRC::testwtpc, MFRC::ElementList_MnNCKFMASTCr) |> Pyroxene_MinPlot()

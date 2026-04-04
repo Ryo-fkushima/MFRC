@@ -2,7 +2,7 @@
 % Please edit documentation in R/Omp_AlT_Omit.R
 \name{Omp_AlT_Omit}
 \alias{Omp_AlT_Omit}
-\title{Recalculation for omphacite (NCFMAS, Al_T is omitted, Ca + Mg + Fe in M2 = Mg + Fe in M1, Mg/Fe equipartition)}
+\title{Recalculation for omphacite (NCFMAS, Al_T is omitted)}
 \usage{
 Omp_AlT_Omit(CationTable)
 }
@@ -10,9 +10,14 @@ Omp_AlT_Omit(CationTable)
 \item{CationTable}{(dataframe) Atomic proportion data}
 }
 \description{
-\code{Omp_AlT_Omit}: For omphacite (NCFMAS, Al_T is omitted)
+\code{Omp_AlT_Omit} calculates site fractions for omphacite in NCFMAS system.
+Al in T site is omitted, (Ca + Mg + Fe2+) in M2 is equated to (Mg + Fe2+) in M1,
+and Mg/Fe equipartition is assumed. Used in Fukushima et al. (2024)
 }
 \examples{
 Mass2Cation(MFRC::testwtpc, MFRC::ElementList_MnNCKFMASTCr) |> Omp_AlT_Omit()
-
+}
+\references{
+Fukushima, R., Tsujimori, T., & Miyajima, N. (2024). Simulation of microtextural evolution in omphacite: Ordering transformation kinetics as unexplored archives of slab eclogitization.
+Physics of the Earth and Planetary Interiors, 354, 107227.
 }

@@ -1,5 +1,5 @@
-#' @title Recalculation for pyroxene (Method used in MinPlot)
-#' @description \code{Omp_AlT_Omit}: For pyroxene (MinPlot)
+#' @title Recalculation for pyroxene (method from MinPlot)
+#' @description \code{Pyroxene_MinPlot} calculates site fractions for pyroxene with the method used in MinPlot (Walters, 2022).
 #'
 #' @param CationTable (dataframe) Atomic proportion data
 #'
@@ -68,6 +68,8 @@ Pyroxene_MinPlot <- function(CationTable){
 
 
   }
+
+
   return(Result)
 
 }

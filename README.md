@@ -34,7 +34,7 @@ library("MFRC")
 library("clipr")
 
 # Copy pyroxene wt% table from somewhere (e.g., Excel sheet) and run the command below.
-# The data in the clipboard will be converted into the atom% table.
+# The data in the clipboard will be converted into the site fraction table.
 read_clip_tbl() |> Mass2Cation(MFRC::ElementList_MnNCKFMASTCr) |> Pyroxene_MinPlot() |> write_clip()
 
 # Paste the result somewhere to check it.

@@ -22,7 +22,7 @@ Omp_AlT_Omit <- function(CationTable){
 
     Fe3 <- max(CT[i, "Na"] - CT[i, "Al"], 0)
 
-    ccc <- (CT[i, "Fe2"] - Fe3) / CT[i, "Mg"] # Fe/Mg in M1, M2 site
+    ccc <- (CT[i, "Fe"] - Fe3) / CT[i, "Mg"] # Fe/Mg in M1, M2 site
 
     Result$Si_T[i] <- CT[i, "Si"]
     Result$Al_M1[i] <- CT[i, "Al"]

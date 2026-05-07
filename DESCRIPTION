@@ -1,7 +1,7 @@
 Package: MFRC
 Type: Package
 Title: Tool for mineral formula recalculation
-Version: 0.1.0
+Version: 0.2.0
 Author: Ryo Fukushima
 Maintainer: Ryo Fukushima <rpifukushima@gmail.com>
 Description: Tool for mineral formula recalculation
@@ -11,4 +11,4 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends: 
-    R (>= 3.5)
+    R (>= 4.4)

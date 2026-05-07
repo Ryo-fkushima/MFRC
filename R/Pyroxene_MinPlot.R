@@ -18,8 +18,8 @@ Pyroxene_MinPlot <- function(CationTable){
   for (i in 1:nrow(CT)){
 
     Oxygen_def <- max(0, (6 - CT[i, "Oxygen"]))
-    Fe3 <- min(2 * Oxygen_def, CT[i, "Fe2"])
-    XMg <- CT[i, "Mg"] / (CT[i, "Mg"] + CT[i, "Fe2"] - Fe3)
+    Fe3 <- min(2 * Oxygen_def, CT[i, "Fe"])
+    XMg <- CT[i, "Mg"] / (CT[i, "Mg"] + CT[i, "Fe"] - Fe3)
 
     # T site
 
@@ -34,7 +34,7 @@ Pyroxene_MinPlot <- function(CationTable){
     Result$Ti_M1[i] <-  CT[i, "Ti"]
     Result$Cr_M1[i] <-  CT[i, "Cr"]
     Result$Fe3_M1[i] <-  Fe3 - Result$Fe3_T[i]
-    Result$Mn_M1[i] <-  CT[i, "Mn2"]
+    Result$Mn_M1[i] <-  CT[i, "Mn"]
 
     MgFe_M1_by_subtraction <- 1 - (Result$Al_M1[i] + Result$Ti_M1[i] + Result$Cr_M1[i] +
                                      Result$Fe3_M1[i] + Result$Mn_M1[i])
@@ -49,7 +49,7 @@ Pyroxene_MinPlot <- function(CationTable){
 
     }else{
 
-      Result$Fe2_M1[i] <- min(Fe_M1_by_subtraction, (CT[i, "Fe2"] - Fe3))
+      Result$Fe2_M1[i] <- min(Fe_M1_by_subtraction, (CT[i, "Fe"] - Fe3))
     }
 
     Result$Sum_M1[i] <- Result$Al_M1[i] + Result$Ti_M1[i] + Result$Cr_M1[i] +
@@ -59,7 +59,7 @@ Pyroxene_MinPlot <- function(CationTable){
     # M2 site
 
     Result$Mg_M2[i] <- max(0, (CT[i, "Mg"] - Result$Mg_M1[i]))
-    Result$Fe2_M2[i] <- max(0, (CT[i, "Fe2"] - Fe3 - Result$Fe2_M1[i]))
+    Result$Fe2_M2[i] <- max(0, (CT[i, "Fe"] - Fe3 - Result$Fe2_M1[i]))
     Result$Ca_M2[i] <-  CT[i, "Ca"]
     Result$Na_M2[i] <-  CT[i, "Na"]
     Result$K_M2[i] <-  CT[i, "K"]
